@@ -5,7 +5,7 @@ const initialGameBoard = [
   [null, null, null],
 ];
 
-export default function GameBoard({ handlePlayerSwitch, gameTurns }) {
+export default function GameBoard({ handlePlayerSwitch, board }) {
   //const [gameBoard, updateBoard] = useState(initialGameBoard);
 
   /* function handleSelectSq(rowIndex, colIndex) {
@@ -17,15 +17,10 @@ export default function GameBoard({ handlePlayerSwitch, gameTurns }) {
     handlePlayerSwitch();
   } */
 
-  let gameBoard = initialGameBoard;
-  for (const turn of gameTurns) {
-    const { square, player } = turn;
-    const { row, col } = square;
-    gameBoard[row][col] = player;
-  }
+  
   return (
     <ol id="game-board">
-      {gameBoard.map((row, rowIndex) => (
+      {board.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
             {row.map((col, colIndex) => (
